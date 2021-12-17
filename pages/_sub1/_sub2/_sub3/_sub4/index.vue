@@ -7,6 +7,7 @@
 			<Dates :info="info" />
 			<NextPrev :prev="prev" :next="next" />
 		</div>
+		<TableOfContents :contents="info.toc" />
 	</div>
 </template>
 
@@ -15,8 +16,9 @@ import Menu from '@/components/Menu'
 import Dates from '@/components/Dates'
 import Heading from '@/components/Heading'
 import NextPrev from '@/components/NextPrev'
+import TableOfContents from '@/components/TableOfContents'
 export default {
-	components: { NextPrev, Menu, Heading, Dates },
+	components: { NextPrev, Menu, Heading, Dates, TableOfContents },
 	head() {
 		return {
 			title: `${process.env.title} - ${this.$route.params.sub1} - ${this.$route.params.sub2} - ${this.$route.params.sub3} - ${this.$route.params.sub4}`
@@ -37,10 +39,6 @@ export default {
 				route: route.fullPath
 			}
 		} catch (e) { redirect('/') }
-	},
-	computed: {
-		updatedAt_formatted: function() { return $moment(this.info.updatedAt).format("LL") },
-		createdAt_formatted: function() { return $moment(this.info.createdAt).format("LL") },
 	},
 	mounted() {
 		let r = this.route

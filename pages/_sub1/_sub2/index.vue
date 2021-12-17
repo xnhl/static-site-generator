@@ -7,6 +7,7 @@
 			<Dates :info="info" />
 			<NextPrev :prev="prev" :next="next" />
 		</div>
+		<TableOfContents :contents="info.toc" />
 	</div>
 </template>
 
@@ -15,8 +16,9 @@ import Menu from '@/components/Menu'
 import Dates from '@/components/Dates'
 import Heading from '@/components/Heading'
 import NextPrev from '@/components/NextPrev'
+import TableOfContents from '@/components/TableOfContents'
 export default {
-	components: { NextPrev, Menu, Heading, Dates },
+	components: { NextPrev, Menu, Heading, Dates, TableOfContents },
 	head() {
 		return {
 			title: `${process.env.title} - ${this.$route.params.sub1} - ${this.$route.params.sub2}`

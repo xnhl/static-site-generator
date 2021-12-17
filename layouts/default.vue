@@ -29,11 +29,11 @@ export default {
 				{
 					hid: 'description',
 					name: 'description',
-					content: process.env.description
+					content: `${process.env.description} | Made with static-site-generator by xnhl on GitHub. https://github.com/xnhl/static-site-generator`
 				},
 				{
 					property: 'og:description', 
-					content: process.env.description
+					content: `${process.env.description} | Made with static-site-generator by xnhl on GitHub. https://github.com/xnhl/static-site-generator`
 				},
 				{
 					name: 'keywords', 
@@ -238,7 +238,7 @@ body
 					@include flexCenter
 					flex: 1
 					margin: 0.5rem
-					flex-basis: 30rem
+					flex-basis: 27rem
 					text-decoration: none
 					border-radius: 0.25rem
 					background: var(--color3)
@@ -278,7 +278,7 @@ body
 				.quote
 					flex: 1
 					margin: 0.5rem
-					flex-basis: 30rem
+					flex-basis: 27rem
 					@include flexCenter
 					flex-direction: column
 					border-radius: 0.25rem
@@ -305,7 +305,7 @@ body
 				.tool
 					flex: 1
 					margin: 0.5rem
-					flex-basis: 30rem
+					flex-basis: 27rem
 					@include flexCenter
 					text-decoration: none
 					flex-direction: column
@@ -336,7 +336,7 @@ body
 				.media
 					flex: 1
 					margin: 0.5rem
-					flex-basis: 30rem
+					flex-basis: 27rem
 					@include flexCenter
 					text-decoration: none
 					flex-direction: column

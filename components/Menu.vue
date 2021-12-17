@@ -80,8 +80,10 @@ export default {
 		.menu-link
 			display: block
 			cursor: pointer
+			font-size: 0.9rem
+			line-height: 0.9rem
 			border: 0.125rem solid rgba(white, 0.25)
-			padding: 0.33rem 0.5rem
+			padding: 0.5rem
 			text-decoration: none
 			color: var(--color)
 			transition: all 0.1s ease-in-out
