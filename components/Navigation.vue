@@ -2,27 +2,27 @@
 	<div id="navigation">
 		<nuxt-link id="navigation-title" to="/" v-text="title"></nuxt-link>
 		<div id="navigation-icons">
-			<img class="navigation-icon" @click="changeTheme" src="/assets/icons/sun.svg" alt="change theme">
-			<img class="navigation-icon" @click="toggleMenu" src="/assets/icons/menu.svg" alt="menu">
+			<img class="navigation-icon" @click="changeTheme" :src="sunPlaceholder" alt="change theme">
+			<img class="navigation-icon" @click="toggleMenu" :src="menuPlaceholder" alt="menu">
 		</div>
 	</div>
 </template>
 
 <script>
 export default {
-	data () {
-		return {
-			scroll_old: 0,
-			scroll_new: 0
-		}
-	},
+	data: () => ({
+		scroll_old: 0,
+		scroll_new: 0,
+		sunPlaceholder: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJmZWF0aGVyIGZlYXRoZXItc3VuIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI1Ij48L2NpcmNsZT48bGluZSB4MT0iMTIiIHkxPSIxIiB4Mj0iMTIiIHkyPSIzIj48L2xpbmU+PGxpbmUgeDE9IjEyIiB5MT0iMjEiIHgyPSIxMiIgeTI9IjIzIj48L2xpbmU+PGxpbmUgeDE9IjQuMjIiIHkxPSI0LjIyIiB4Mj0iNS42NCIgeTI9IjUuNjQiPjwvbGluZT48bGluZSB4MT0iMTguMzYiIHkxPSIxOC4zNiIgeDI9IjE5Ljc4IiB5Mj0iMTkuNzgiPjwvbGluZT48bGluZSB4MT0iMSIgeTE9IjEyIiB4Mj0iMyIgeTI9IjEyIj48L2xpbmU+PGxpbmUgeDE9IjIxIiB5MT0iMTIiIHgyPSIyMyIgeTI9IjEyIj48L2xpbmU+PGxpbmUgeDE9IjQuMjIiIHkxPSIxOS43OCIgeDI9IjUuNjQiIHkyPSIxOC4zNiI+PC9saW5lPjxsaW5lIHgxPSIxOC4zNiIgeTE9IjUuNjQiIHgyPSIxOS43OCIgeTI9IjQuMjIiPjwvbGluZT48L3N2Zz4=",
+		menuPlaceholder: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJmZWF0aGVyIGZlYXRoZXItbWVudSI+PGxpbmUgeDE9IjMiIHkxPSIxMiIgeDI9IjIxIiB5Mj0iMTIiPjwvbGluZT48bGluZSB4MT0iMyIgeTE9IjYiIHgyPSIyMSIgeTI9IjYiPjwvbGluZT48bGluZSB4MT0iMyIgeTE9IjE4IiB4Mj0iMjEiIHkyPSIxOCI+PC9saW5lPjwvc3ZnPg=="
+	}),
 	methods: {
-		changeTheme: function() { $nuxt.$colorMode.preference = $nuxt.$colorMode.preference == "light" ? "dark" : "light" },
-		toggleMenu: function() {
+		changeTheme() { $nuxt.$colorMode.preference = $nuxt.$colorMode.preference == "light" ? "dark" : "light" },
+		toggleMenu() {
 			let menu = document.getElementById("menu-wrapper")
 			menu.classList.toggle("hidden")
 		},
-		handleScroll: function() {
+		handleScroll() {
 			let y = window.scrollY
 			this.scroll_new = y
 			let nav_wrapper = document.getElementById("navigation")
@@ -54,9 +54,7 @@ export default {
 			}
 		}
 	},
-	computed: {
-		title: function() { return process.env.title }
-	},
+	computed: { title() { return process.env.title } },
 	mounted() { window.addEventListener('scroll', this.handleScroll) }
 }
 </script>

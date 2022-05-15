@@ -9,10 +9,7 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu'
-import Heading from '@/components/Heading'
 export default {
-	components: { Menu, Heading },
 	async asyncData({ params, redirect, $content }) {
 		try {
 			const index = await $content('index').fetch()
@@ -23,11 +20,8 @@ export default {
 			}
 		} catch (e) { redirect('/') }
 	},
-	computed: {
-		title: function() { return process.env.title }
-	}
+	computed: { title: function() { return process.env.title } }
 }
 </script>
 
-<style lang="sass">
-</style>
+<style></style>

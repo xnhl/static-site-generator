@@ -4,14 +4,12 @@
 
 <script>
 export default {
-	props: {
-		title: ""
-	},
+	props: { title: "" },
 	methods: {
-		titleCase: function(string) { return `${string.substring(0, 1).toUpperCase()}${string.substring(1)}` }
+		titleCase(string) { return `${string.substring(0, 1).toUpperCase()}${string.substring(1)}` }
 	},
 	computed: {
-		titleCapitalized: function() {
+		titleCapitalized() {
 			let splitt = this.title.split(" / ")
 			let asTitles = splitt.map(each => this.titleCase(each))
 			return asTitles.join(" / ")

@@ -1,11 +1,11 @@
 <template>
 	<div id="dates">
 		<div class="dates-item">
-			<img class="dates-item-icon" src="/assets/icons/clock.svg" alt="created">
+			<img class="dates-item-icon" :src="clockPlaceholder" alt="created">
 			<p class="dates-item-text" v-html="`Created:<br>${dates.createdAt}`"></p>
 		</div>
     <div class="dates-item">
-			<img class="dates-item-icon" src="/assets/icons/clock.svg" alt="updated">
+			<img class="dates-item-icon" :src="clockPlaceholder" alt="updated">
 			<p class="dates-item-text" v-html="`Updated:<br>${dates.updatedAt}`"></p>
 		</div>
 	</div>
@@ -13,11 +13,12 @@
 
 <script>
 export default {
-	props: {
-		info: {}
-	},
+	data: () => ({
+		clockPlaceholder: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJmZWF0aGVyIGZlYXRoZXItY2xvY2siPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIj48L2NpcmNsZT48cG9seWxpbmUgcG9pbnRzPSIxMiA2IDEyIDEyIDE2IDE0Ij48L3BvbHlsaW5lPjwvc3ZnPg=="
+	}),
+	props: { info: {} },
 	computed: {
-		dates: function() {
+		dates() {
 			let u = this.$moment(new Date(this.info.updatedAt)).format("LLLL")
 			let c = this.$moment(new Date(this.info.createdAt)).format("LLLL")
 			return {

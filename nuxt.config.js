@@ -1,6 +1,7 @@
 import options from './options.json'
 export default {
 	target: 'static',
+	components: true,
 	axios: { baseURL: '/' },
 	loading: { color: '#fff' },
 	generate: {

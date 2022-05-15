@@ -8,7 +8,7 @@
 <script>
 export default {
 	computed: {
-		copyright: function() { return `&copy; ${process.env.author}` }
+		copyright() { return `&copy; ${process.env.author}` }
 	}
 }
 </script>

@@ -9,17 +9,15 @@
 
 <script>
 export default {
-	props: {
-		files: []
-	},
+	props: { files: [] },
 	methods: {
-		hideMenu: function() {
+		hideMenu() {
 			let menu = document.getElementById("menu-wrapper")
 			menu.classList.add("hidden")
 		}
 	},
 	computed: {
-		filesSorted: function() {
+		filesSorted() {
 			return this.files.filter(each => each.path !== "/index").sort((a, b) => {
 				let aa = a.path.replace("/", "")
 				let bb = b.path.replace("/", "")

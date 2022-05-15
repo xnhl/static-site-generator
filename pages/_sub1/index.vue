@@ -9,10 +9,7 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu'
-import NextPrev from '@/components/NextPrev'
 export default {
-	components: { NextPrev, Menu },
 	async asyncData({ params, redirect, $content }) {
 		try {
 			const info = await $content(params.sub1).fetch()

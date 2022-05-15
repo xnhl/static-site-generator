@@ -8,9 +8,7 @@
 
 <script>
 export default {
-	props: {
-		contents: []
-	}
+	props: { contents: [] }
 }
 </script>
 

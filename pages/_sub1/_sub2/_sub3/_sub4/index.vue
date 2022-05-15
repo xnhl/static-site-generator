@@ -12,13 +12,7 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu'
-import Dates from '@/components/Dates'
-import Heading from '@/components/Heading'
-import NextPrev from '@/components/NextPrev'
-import TableOfContents from '@/components/TableOfContents'
 export default {
-	components: { NextPrev, Menu, Heading, Dates, TableOfContents },
 	head() {
 		return {
 			title: `${process.env.title} - ${this.$route.params.sub1} - ${this.$route.params.sub2} - ${this.$route.params.sub3} - ${this.$route.params.sub4}`
@@ -54,5 +48,4 @@ export default {
 }
 </script>
 
-<style lang="sass">
-</style>
+<style></style>
