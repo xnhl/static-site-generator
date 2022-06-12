@@ -1,5 +1,5 @@
 <template>
-	<div id="menu-wrapper" class="hidden">
+	<div id="menu-wrapper" class="hidden" ref="menu">
 		<p id="hide-menu" @click="hideMenu">X</p>
 		<div id="menu">
 			<nuxt-link class="menu-link" v-for="(file, index) in filesSorted" :key="`file-${index}`" :to="file.path" v-text="file.path"></nuxt-link>
@@ -14,21 +14,26 @@ export default {
 		hideMenu() {
 			let menu = document.getElementById("menu-wrapper")
 			menu.classList.add("hidden")
+		},
+		menuResize() {
+			let width = window.innerWidth
+			let menu = document.getElementById("menu-wrapper")
+			if (width > 800) { menu.classList.add("hidden") }
+			else { menu.classList.remove("hidden") }
 		}
 	},
 	computed: {
 		filesSorted() {
-			return this.files.filter(each => each.path !== "/index").sort((a, b) => {
+			let filt = this.files.filter(each => each.path !== "/index").sort((a, b) => {
 				let aa = a.path.replace("/", "")
 				let bb = b.path.replace("/", "")
 				return aa < bb ? -1 : aa > bb ? 1 : 0
 			})
+			return filt
 		}
 	},
 	mounted() {
-		let w = window.innerWidth
-		let menu = document.getElementById("menu-wrapper")
-		if (w <= 800) { menu.classList.add("hidden") } else { menu.classList.remove("hidden") }
+		window.addEventListener('resize', this.menuResize)
 	}
 }
 </script>
@@ -38,6 +43,8 @@ export default {
 	height: 95vh
 	z-index: 5
 	margin-right: 1rem
+	position: sticky
+	top: 2rem
 	&.hidden
 		display: none
 	@media (max-width: 50rem)

@@ -18,7 +18,7 @@ export default {
 	margin: 0.25rem
 	#contents
 		position: sticky
-		top: 0
+		top: 2rem
 		padding: 0.25rem
 		min-width: 10rem
 		max-width: 20rem
